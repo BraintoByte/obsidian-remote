@@ -41,7 +41,7 @@ Use `http://localhost:8080/` to access it locally, do not expose this to the web
 
 ## Docker Hub
 
-**[Docker Image Here](braintobytes/obsidian-remote)
+**[Docker Image Here](braintobytes/obsidian-remote)**
 
 ## Using the Container
 
