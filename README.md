@@ -1,9 +1,24 @@
+
+```
+██████╗ ██████╗  █████╗ ██╗███╗   ██╗    ████████╗ ██████╗     ██████╗ ██╗   ██╗████████╗███████╗███████╗
+██╔══██╗██╔══██╗██╔══██╗██║████╗  ██║    ╚══██╔══╝██╔═══██╗    ██╔══██╗╚██╗ ██╔╝╚══██╔══╝██╔════╝██╔════╝
+██████╔╝██████╔╝███████║██║██╔██╗ ██║       ██║   ██║   ██║    ██████╔╝ ╚████╔╝    ██║   █████╗  ███████╗
+██╔══██╗██╔══██╗██╔══██║██║██║╚██╗██║       ██║   ██║   ██║    ██╔══██╗  ╚██╔╝     ██║   ██╔══╝  ╚════██║
+██████╔╝██║  ██║██║  ██║██║██║ ╚████║       ██║   ╚██████╔╝    ██████╔╝   ██║      ██║   ███████╗███████║
+╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝       ╚═╝    ╚═════╝     ╚═════╝    ╚═╝      ╚═╝   ╚══════╝╚══════╝
+```
+
+
 # obsidian-remote
 
-This docker image allows you to run obsidian in docker as a container and access it via your web browser.
+This docker image allows you to run **THE LATESTS VERSION OF OBSIDIAN** in docker as a container and access it via your web browser.
+
+The original project was from github@braintobytes.com and it seemed deprecated, lots of people asking for a docker container running the latest version of obsidian, so here it is.
 
 Use `http://localhost:8080/` to access it locally, do not expose this to the web unless you secure it and know what you are doing!!
 
+- [Roadmap for future features](#roadmap)
+- [Docker Hub](#docker-hub)
 - [Using the Container](#using-the-container)
   - [Ports](#ports)
   - [Mapped Volumes](#mapped-volumes)
@@ -23,6 +38,11 @@ Use `http://localhost:8080/` to access it locally, do not expose this to the web
 - [Building locally](#building-locally)
 - [Copy/Paste From External Source](#copypaste-from-external-source)
 
+
+## Docker Hub
+
+**[Docker Image Here](braintobytes/obsidian-remote)
+
 ## Using the Container
 
 To run a interactive version to test it out. This is using windows based path, update for the OS you are running on.
@@ -32,7 +52,7 @@ docker run --rm -it `
   -v D:/ob/vaults:/vaults `
   -v D:/ob/config:/config `
   -p 8080:8080 `
-  ghcr.io/sytone/obsidian-remote:latest
+  ghcr.io/braintobytes/obsidian-remote:latest
 ```
 
 To run it as a daemon in the background.
@@ -42,7 +62,7 @@ docker run -d `
   -v D:/ob/vaults:/vaults `
   -v D:/ob/config:/config `
   -p 8080:8080 `
-  ghcr.io/sytone/obsidian-remote:latest
+  ghcr.io/braintobytes/obsidian-remote:latest
 ```
 
 The ARM container is now avaliable, will look to make this simpler in the future. The ARM imange is on the docker hub and not the github container registry. 
@@ -52,7 +72,7 @@ docker run -d `
   -v D:/ob/vaults:/vaults `
   -v D:/ob/config:/config `
   -p 8080:8080 `
-  sytone/obsidian-remote:latest
+  braintobytes/obsidian-remote:latest
 ```
 
 ### Ports
@@ -86,7 +106,7 @@ docker run -d `
 version: '3.8'
 services:
   obsidian:
-    image: 'ghcr.io/sytone/obsidian-remote:latest'
+    image: 'ghcr.io/braintobytes/obsidian-remote:latest'
     container_name: obsidian-remote
     restart: unless-stopped
     ports:
@@ -113,7 +133,7 @@ docker run -d `
   -v D:/ob/config:/config `
   -p 8080:8080 `
   -e DOCKER_MODS=linuxserver/mods:universal-git `
-  ghcr.io/sytone/obsidian-remote:latest
+  ghcr.io/braintobytes/obsidian-remote:latest
 ```
 
 ## Reloading Obsidan in the Browser
@@ -133,7 +153,7 @@ docker run --rm -it `
   -e PUID=1000 `
   -e PGID=1000 `
   -p 8080:8080 `
-  ghcr.io/sytone/obsidian-remote:latest
+  ghcr.io/braintobytes/obsidian-remote:latest
 ```
 
 Or, if you use docker-compose, add them to the environment: section:
@@ -216,7 +236,7 @@ If you install obsidian-remote in Docker, you can proxy it through [Nginx Proxy 
 version: '3.8'
 services:
   obsidian:
-    image: 'ghcr.io/sytone/obsidian-remote:latest'
+    image: 'ghcr.io/braintobytes/obsidian-remote:latest'
     container_name: obsidian-remote
     restart: unless-stopped
     ports:
@@ -269,5 +289,7 @@ Click on the circle to the left side of your browser window. In there you will f
 
 ![image](https://user-images.githubusercontent.com/1399443/202805847-a87e2c7c-a5c6-4dea-bbae-4b25b4b5866a.png)
 
+## Roadmap
 
-
+- Encrypt/Decrypt Obsidian Vaults and Configs
+- Log

@@ -1,9 +1,9 @@
 FROM ghcr.io/linuxserver/baseimage-rdesktop-web:focal
 
-LABEL org.opencontainers.image.authors="github@sytone.com"
-LABEL org.opencontainers.image.source="https://github.com/sytone/obsidian-remote"
+LABEL org.opencontainers.image.authors="braintobytes@braintobytes.com"
+LABEL org.opencontainers.image.source="https://github.com/BraintoByte/obsidian-remote"
 LABEL org.opencontainers.image.title="Container hosted Obsidian MD"
-LABEL org.opencontainers.image.description="Hosted Obsidian instance allowing access via web browser"
+LABEL org.opencontainers.image.description="Hosted Obsidian (latest version) instance allowing access via web browser"
 
 RUN \
     echo "**** install packages ****" && \
@@ -13,6 +13,7 @@ RUN \
             # Packages needed to download and extract obsidian.
             curl \
             libnss3 \
+            wget \
             # Install Chrome dependencies.
             dbus-x11 \
             uuid-runtime && \
@@ -23,13 +24,15 @@ RUN \
         /var/tmp/* \
         /tmp/*
 
-# set version label
-ARG OBSIDIAN_VERSION=0.15.9
 
+# set version label
 RUN \
     echo "**** download obsidian ****" && \
-        curl \
-        https://github.com/obsidianmd/obsidian-releases/releases/download/v$OBSIDIAN_VERSION/Obsidian-$OBSIDIAN_VERSION.AppImage \
+        curl -s https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest \
+        | grep "browser_download_url.*deb" \
+        | cut -d : -f 2,3 \
+        | tr -d \" \
+        | wget -qi - \
         -L \
         -o obsidian.AppImage
 
@@ -51,5 +54,3 @@ EXPOSE 8080
 EXPOSE 27123
 EXPOSE 27124
 VOLUME ["/config","/vaults"]
-
-
