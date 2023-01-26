@@ -107,18 +107,18 @@ docker run -d `
 version: '3.8'
 services:
   obsidian:
-    image: 'ghcr.io/braintobytes/obsidian-remote:latest'
+    image: 'braintobytes/obsidian-remote:latest'
     container_name: obsidian-remote
     restart: unless-stopped
     ports:
       - 8080:8080
     volumes:
-      - /home/obsidian/vaults:/vaults
-      - /home/obsidian/config:/config
+      - /home/law/obsidian/vaults:/vaults
+      - /home/law/obsidian/config:/config
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=America/Los_Angeles
+      - TZ=America/Chicago
       - DOCKER_MODS=linuxserver/mods:universal-git
 ```
 
