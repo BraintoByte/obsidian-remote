@@ -37,11 +37,12 @@ Use `http://localhost:8080/` to access it locally, do not expose this to the web
 - [Updating Obsidian](#updating-obsidian)
 - [Building locally](#building-locally)
 - [Copy/Paste From External Source](#copypaste-from-external-source)
+- [WARNING!! READ!!](#warnings-and-cautions)
 
 
 ## Docker Hub
 
-**[Docker Image Here](braintobytes/obsidian-remote)**
+**[Docker Image Here](https://hub.docker.com/r/braintobytes/obsidian-remote)**
 
 ## Using the Container
 
@@ -293,3 +294,26 @@ Click on the circle to the left side of your browser window. In there you will f
 
 - Encrypt/Decrypt Obsidian Vaults and Configs
 - Log
+
+## Warnings and Cautions
+
+**Security**: By no means this is secure to public exposure, it's full of security holes and RDP tricks that can be used against you, so if you do download don't expose this to the public interwebs!
+
+**Operating systems**: This does not work on windows, you can modify my python script (download_obsidian.py) to get the arm-64 version
+
+
+<p align="center">
+<strong>
+Enjoy Responsably!
+</strong>
+</p>
+
+<br />
+<br />
+<br />
+<br />
+<p align="center">
+  Check out our website, 
+  <a href="https://www.braintobytes.com/">braintobytes.com</a>
+  for more!
+</p>
