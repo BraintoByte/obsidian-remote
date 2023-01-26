@@ -24,17 +24,9 @@ RUN \
         /var/tmp/* \
         /tmp/*
 
+COPY download_obsdian.py .
 
-# set version label
-RUN \
-    echo "**** download obsidian ****" && \
-        curl -s https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest \
-        | grep "browser_download_url.*deb" \
-        | cut -d : -f 2,3 \
-        | tr -d \" \
-        | wget -qi - \
-        -L \
-        -o obsidian.AppImage
+RUN python3 download_obsdian.py
 
 RUN \
     echo "**** extract obsidian ****" && \
