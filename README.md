@@ -297,7 +297,7 @@ Click on the circle to the left side of your browser window. In there you will f
 
 ## Warnings and Cautions
 
-**Security**: By no means this is secure to public exposure, it's full of security holes and RDP tricks that can be used against you, so if you do download don't expose this to the public interwebs!
+**Security**: By no means this is secure for public exposure, it's full of security holes and RDP tricks that can be used against you, so if you do download it and run it, don't expose to the public interwebs!
 
 **Operating systems**: This does not work on windows, you can modify my python script (download_obsidian.py) to get the arm-64 version
 
